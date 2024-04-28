@@ -63,7 +63,7 @@ public class GAuthSecretService {
   public ApiDownloadInput getGAuthQRCodeByUser(String userName) {
     return gAuthSecretRepository.findTopByUserName(userName)
         .map(e -> getOTPAuthData(e.getUserName(), e.getSecretKey(), "testIssuer"))
-        .map(e -> QRCodeInput.builder().input(e).height(400).width(400).build())
+        .map(e -> QRCodeInput.builder().input(e).build())
         .map(qrCodeService::encode)
         .orElseThrow(() -> new ApiException("error while getting the GQRCode"));
 

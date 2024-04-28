@@ -33,6 +33,12 @@ public class QRCodeController implements AbstractController {
     return download(qrCodeService.encode(qrCodeInput));
   }
 
+  @PostMapping("/encodeLogo")
+  public ResponseEntity<byte[]> inputLogo(@RequestBody @Valid @NotNull QRCodeInput qrCodeInput) {
+
+    return download(qrCodeService.encodeLogo(qrCodeInput));
+  }
+
   @PutMapping(value = "/encode", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
   public ResponseEntity<ApiDataResponse<String>> decode(@ModelAttribute @Valid @NotNull FileDTO fileDTO) {
 

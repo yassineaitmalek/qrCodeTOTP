@@ -18,10 +18,4 @@ public class QRCodeInput {
   @NotNull
   private String input;
 
-  @NotNull
-  private Integer height;
-
-  @NotNull
-  private Integer width;
-
 }
